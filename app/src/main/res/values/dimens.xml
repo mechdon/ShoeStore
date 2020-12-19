@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <dimen name="default_spacing">16dp</dimen>
+    <dimen name="button_width">300dp</dimen>
+    <dimen name="button_height">70dp</dimen>
+    <dimen name="medium_text_size">18sp</dimen>
+    <dimen name="large_text_size">33sp</dimen>
+    <dimen name="corner_radius">4dp</dimen>
+    <dimen name="left_spacing">24dp</dimen>
+    <dimen name="top_margin">50dp</dimen>
+    <dimen name="margin_large">16dp</dimen>
+</resources>

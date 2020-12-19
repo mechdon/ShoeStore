@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
+        xmlns:app="http://schemas.android.com/apk/res-auto"
+        xmlns:tools="http://schemas.android.com/tools">
+
+    <data>
+        <variable
+            name="shoe"
+            type="com.udacity.shoestore.models.Shoe" />
+    </data>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/shoeNameTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_weight="1"
+            android:text="@{shoe.name}"
+            android:textSize="@dimen/medium_text_size"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/companyTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_weight="1"
+            android:text="@{shoe.company}"
+            android:textSize="@dimen/medium_text_size" />
+
+        <TextView
+            android:id="@+id/shoeSizeTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_weight="1"
+            android:text="@{shoe.size}"
+            android:textSize="@dimen/medium_text_size" />
+
+        <TextView
+            android:id="@+id/shoeDescTv"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/margin_large"
+            android:layout_marginTop="@dimen/margin_large"
+            android:layout_weight="1"
+            android:text="@{shoe.description}"
+            android:textSize="@dimen/medium_text_size" />
+    </LinearLayout>
+
+
+</layout>
