@@ -16,19 +16,12 @@ import androidx.navigation.fragment.findNavController
 import com.udacity.shoestore.R
 import com.udacity.shoestore.databinding.DetailFragmentBinding
 import com.udacity.shoestore.models.Shoe
-import com.udacity.shoestore.screens.shoelisting.ShoeListFragmentDirections
 import com.udacity.shoestore.screens.shoelisting.ShoeListModel
 import timber.log.Timber
 
 class DetailFragment : Fragment() {
 
     private lateinit var viewModel: ShoeListModel
-    var shoe: Shoe? = null
-
-    var shoeName = ""
-    var shoeSize = ""
-    var shoeCompany = ""
-    var shoeDesc = ""
 
     override fun onCreateView(inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?): View? {
 
@@ -38,25 +31,7 @@ class DetailFragment : Fragment() {
 
         binding.lifecycleOwner = this
         binding.shoeListModel = viewModel
-
-        // Get data when user enter details in the text fields
-
-        binding.shoeNameET.afterTextChanged {
-            shoeName = it
-        }
-
-        binding.shoeSizeET.afterTextChanged {
-            shoeSize = it
-        }
-
-        binding.shoeComET.afterTextChanged {
-            shoeCompany = it
-        }
-
-        binding.shoeDescET.afterTextChanged {
-            shoeDesc = it
-        }
-
+        binding.shoe = Shoe()
 
         binding.cancelBtn.setOnClickListener {
 
@@ -64,42 +39,31 @@ class DetailFragment : Fragment() {
             activity?.onBackPressed()
         }
 
-
-
-        binding.saveBtn.setOnClickListener {
-
-            // Check all fields are filled
-            if (shoeName.isNotEmpty() && shoeSize.isNotEmpty() && shoeCompany.isNotEmpty() && shoeDesc.isNotEmpty()){
-
-                shoe = Shoe(shoeName, shoeSize, shoeCompany, shoeDesc)
-                viewModel.addShoeItem(shoe)
-
-                // Go back to Shoelist view
+        viewModel.eventSaved.observe(viewLifecycleOwner, Observer { clicked ->
+            if (clicked){
+                // Go to Shoelist view
                 activity?.onBackPressed()
+                viewModel.eventSavedComplete()
+            }
+        })
 
-            } else {
+        viewModel.eventErrorToast.observe(viewLifecycleOwner, Observer { error ->
+            if (error){
                 // Show toast to fill all fields
                 Toast.makeText(context, getString(R.string.plse_fill_in_all_fields),
                         Toast.LENGTH_SHORT).show()
+
+                viewModel.onToastComplete()
             }
-        }
+
+        })
 
         return binding.root
 
     }
 
 
-    fun EditText.afterTextChanged(afterTextChanged: (String) -> Unit) {
-        this.addTextChangedListener(object: TextWatcher {
-            override fun afterTextChanged(s: Editable?) {
-                afterTextChanged.invoke(s.toString())
-            }
 
-            override fun beforeTextChanged(s: CharSequence?, start: Int, count: Int, after: Int) { }
-
-            override fun onTextChanged(s: CharSequence?, start: Int, before: Int, count: Int) { }
-        })
-    }
 
 
 }

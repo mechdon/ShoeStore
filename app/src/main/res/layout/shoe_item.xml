@@ -9,6 +9,8 @@
             type="com.udacity.shoestore.models.Shoe" />
     </data>
 
+    <!-- Linear Layout is a basic layout which is used to align the textviews vertically  -->
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"

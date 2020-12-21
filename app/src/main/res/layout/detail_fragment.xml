@@ -13,12 +13,12 @@
             type="com.udacity.shoestore.screens.shoelisting.ShoeListModel" />
     </data>
 
+    <!-- Constraint Layout is used, due to alignments between the relative positions of textviews, edittext views and buttons -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cardview_shadow_end_color"
         tools:context=".screens.detail.DetailFragment">
-
 
         <TextView
             android:id="@+id/companyTV"
@@ -58,7 +58,7 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="36dp"
-            android:layout_marginTop="84dp"
+            android:layout_marginTop="50dp"
             android:text="@string/shoe_name"
             android:textSize="@dimen/large_text_size"
             app:layout_constraintStart_toStartOf="parent"
@@ -69,9 +69,9 @@
             android:layout_width="147dp"
             android:layout_height="49dp"
             android:layout_marginStart="108dp"
+            android:text="@={shoe.name}"
             android:ems="10"
             android:hint="@string/shoe_name_hint"
-            android:inputType="textPersonName"
             app:layout_constraintBaseline_toBaselineOf="@+id/nameTV"
             app:layout_constraintStart_toEndOf="@+id/nameTV" />
 
@@ -80,9 +80,9 @@
             android:layout_width="156dp"
             android:layout_height="52dp"
             android:layout_marginStart="132dp"
+            android:text="@={shoe.size}"
             android:ems="10"
             android:hint="@string/shoe_size_hint"
-            android:inputType="textPersonName"
             app:layout_constraintBaseline_toBaselineOf="@+id/sizeTV"
             app:layout_constraintStart_toEndOf="@+id/sizeTV" />
 
@@ -91,9 +91,9 @@
             android:layout_width="161dp"
             android:layout_height="43dp"
             android:layout_marginStart="52dp"
+            android:text="@={shoe.company}"
             android:ems="10"
             android:hint="@string/shoe_company_hint"
-            android:inputType="textPersonName"
             app:layout_constraintBaseline_toBaselineOf="@+id/companyTV"
             app:layout_constraintStart_toEndOf="@+id/companyTV" />
 
@@ -103,6 +103,7 @@
             android:layout_height="48dp"
             android:layout_marginStart="36dp"
             android:layout_marginTop="36dp"
+            android:text="@={shoe.description}"
             android:ems="10"
             android:gravity="start|top"
             android:hint="@string/shoe_desc_hint"
@@ -129,6 +130,7 @@
             android:layout_marginEnd="88dp"
             android:background="@android:color/holo_blue_light"
             android:text="@string/save"
+            android:onClick="@{() -> shoeListModel.onSaveClicked(shoe)}"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/shoeDescET" />
 

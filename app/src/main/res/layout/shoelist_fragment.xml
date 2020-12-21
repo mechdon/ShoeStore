@@ -10,10 +10,14 @@
             type="com.udacity.shoestore.screens.shoelisting.ShoeListModel" />
     </data>
 
+    <!-- Due to the complexity of the layout, Constraint Layout is used to flatten the hierarchy, thereby increasing the performance   -->
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".screens.shoelisting.ShoeListFragment">
+
+
+        <!-- Scroll view is used support the scrolling of the shoelist items vertically  -->
 
         <ScrollView
             android:id="@+id/shoelistSv"
@@ -25,12 +29,16 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
+            <!-- Linear Layout is used to align the shoelist items vertically  -->
+
             <LinearLayout
                 android:id="@+id/shoeListItem"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"></LinearLayout>
         </ScrollView>
+
+        <!-- A floating action button is used to trigger navigation to the detail screen  -->
 
         <com.google.android.material.floatingactionbutton.FloatingActionButton
             android:id="@+id/fab"

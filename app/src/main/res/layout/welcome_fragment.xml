@@ -4,22 +4,24 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <!-- Since this is a simple layout with only 3 elements arranged vertically, LinearLayout is sufficient -->
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/cardview_shadow_end_color"
+        android:orientation="vertical"
         tools:context=".screens.welcome.WelcomeFragment">
 
         <TextView
             android:id="@+id/titleTv"
             android:layout_width="268dp"
             android:layout_height="143dp"
-            android:layout_marginTop="70dp"
+            android:layout_gravity="center_horizontal"
+            android:layout_marginTop="50dp"
             android:text="@string/welcome_text_one"
             android:textAlignment="center"
             android:textSize="@dimen/large_text_size"
             app:layout_constraintEnd_toEndOf="parent"
-            app:layout_constraintHorizontal_bias="0.5"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent" />
 
@@ -28,6 +30,7 @@
             android:layout_width="258dp"
             android:layout_height="93dp"
             android:layout_marginTop="68dp"
+            android:layout_gravity="center_horizontal"
             android:text="@string/welcome_text_two"
             android:textAlignment="center"
             android:textSize="@dimen/medium_text_size"
@@ -40,13 +43,14 @@
             style="@style/Button"
             android:layout_width="@dimen/button_width"
             android:layout_height="wrap_content"
-            android:layout_marginTop="172dp"
+            android:layout_marginTop="100dp"
+            android:layout_gravity="center_horizontal"
             android:text="@string/to_instructions"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.495"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/textTv" />
-    </androidx.constraintlayout.widget.ConstraintLayout>
+    </LinearLayout>
 
 
 </layout>
